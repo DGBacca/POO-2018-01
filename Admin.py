@@ -5,5 +5,9 @@ class Admin(object):
 
 
 
-	def enviarNotificacion(self):
-		pass
+	def enviarNotificacion(self, email, title, text):
+            notificacion = {
+                    'title': title,
+                    'text': text
+            }
+
