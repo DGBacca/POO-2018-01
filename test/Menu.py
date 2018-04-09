@@ -1,93 +1,163 @@
 import sys
-class Run():
 
-	def __init__(self):
-		self.choices = {
-		"1": self.Administrador,
-    "1.1": self. 'Ver usuarios'
-    "1.2": self. ' Crear usuraio'
-    "1.3": self. ' Eliminar Usuario'
-    "1.4": self. ' Crear playlist'
-    "1.5": self. ' Eliminar playlist'
-    "1.6": self. ' Crear albúm'
-    "1.7": self. ' Eliminar albúm'
-    "1.8": self. ' Crear artista'
-    "1.9": self. ' Eliminar artista'
-    "1.10": self. ' Agregar comentario'
-    "1.11": self. ' Eliminar comentario'
-		"2": self.Usuario,
-    "2.2": self. ' Eliminar playlist'
-    "2.3": self. ' Crear comentario'
-    "2.4": self. ' Eliminar comentario'
-    "2.5": self. '. Salir'
-		"3": self.Invitado,
-    "3.1": self. '. Registrase'
-    "3.2": self. '. Ver playlist'
-    "3.3": self. '. Salir'
-		"4": self.salir
+class Menu:
+
+   def __init__(self):
+       self.break_while=1
+       self.choices={
+       "1":self.Administrador,
+       "2":self.Usuario,
+       "3":self.Invitado,
+       "4":self.Salir
        }
 
-  MENU_ENTRADA="""
-      CHEAPY Menu Principal
-       1. Administrador
-       2. Usuario
-       3. Invitado
-       4. Salir
-       """
+   def Seleccionarop(self):
+         pass
 
-    def salir(self):
-       print("Chaito")
-       sys.exit(0)
-       
-    def run(self,menu = MENU_ENTRADA): 
+   def menuPrincipal(self):
+      print("""
+      Cheapy Menu Principal
 
-       while self.break_while==1:
-           #self.display_menu()
-           print(menu)
-           opcion = input("Ingrese una opcion: ")
-           action = self.choices.get(opcion)
-           if action:
-               action()
-           else:
-               print("{0} no es una opcion valida".format(opcion))
+         1. Administrador
+         2. Usuario
+         3. Invitado 
+         4. Salir
 
-    def Administrador(self):
+      """)
 
-    	menu_administrador = """
-    	CHEAPY Menu Administrador
-       	1.1. Ver usuarios
-        1.2. Crear usuraio
-        1.3. Eliminar Usuario
-        1.4. Crear playlist
-        1.5. Eliminar playlist
-        1.6. Crear albúm
-        1.7. Eliminar albúm
-        1.8. Crear artista
-        1.9. Eliminar artista
-        1.10. Agregar comentario
-        1.11. Eliminar comentario
-        1.12. Salir
+   def Administrador(self):
+      print("""
+      CHEAPY Menu Administrador
 
-    		"""
-    	self.run(menu_administrador)
+         1. Ver usuarios
+         2. Crear usuario
+         3. Eliminar Usuario
+         4. Crear playlist
+         5. Eliminar playlist
+         6. Crear albúm
+         7. Eliminar albúm
+         8. Crear artista
+         9. Eliminar artista
+         10. Agregar comentario
+         11. Eliminar comentario
+         12. Salir
 
+         """)
+      op = int(input("ingrese opcion: "))
 
-    def Usuario(self):
-      menu_usuario = """
+      if (op==1):
+         self.verUsuarios()
+      elif(op==2):
+         self.crearUsuario()
+      elif(op==3):
+         self.EliminarUsuario()
+      elif(op==4):
+         self.crearPlaylist()
+      elif(op==5):
+         self.eliminarPlaylist()
+      elif(op==6):
+         self.crearAlbum()
+      elif(op==7):
+         self.eliminarAlbum()
+      elif(op==8):
+         self.crearArtista()
+      elif(op==9):
+         self.eliminarArtista()
+      elif(op==10):
+         self.agregarComentario()
+      elif(op==11):
+         self.eliminarComentario()
+      elif(op==12):
+         pass
+
+   def verUsuarios(self):
+      print("\nfuncion funciona")
+      self.Administrador()
+
+   def crearUsuario(self):
+      self.Administrador()
+
+   def EliminarUsuario(self):
+      self.Administrador()
+
+   def crearPlaylist(self):
+      self.Administrador()
+
+   def eliminarPlaylist(self):
+      self.Administrador()
+
+   def crearAlbum(self):
+      self.Administrador()
+
+   def eliminarAlbum(self):
+      self.Administrador()
+
+   def crearArtista(self):
+      self.Administrador()
+
+   def eliminarArtista(self):
+      self.Administrador()
+
+   def agregarComentario(self):
+      self.Administrador()
+
+   def eliminarComentario(self):
+      self.Administrador()
+
+   def Usuario(self):
+      print("""
       CHEAPY Menu Usuario
-        2.1. Crear playlist
-        2.2. Eliminar playlist
-        2.3. Crear comentario
-        2.4. Eliminar comentario
-        2.5. Salir
+        1. Crear playlist
+        2. Eliminar playlist
+        3. Agrega comentario
+        4. Eliminar comentario
+        5. Salir
+        
+        """)
 
-        """
+      op = int(input("ingrese opcion: "))
 
-    def Invitado(self):
-    	menu_invitado = """
+      if (op==1):
+         self.crearPlaylist()
+      elif(op==2):
+         self.eliminarPlaylist()
+      elif(op==3):
+         self.agregarComentario()
+      elif(op==4):
+         self.eliminarComentario()
+      elif(op==5):
+         self.eliminarPlaylist()
+
+   def Invitado(self):
+      print("""
       CHEAPY Menu Usuario
+        
         3.1. Registrase
         3.2. Ver playlist
         3.3. Salir
 
-        """
+        """)
+
+   def Registrase(self):
+      self.Invitado()
+
+   def verPlaylist(self):
+      self.Invitado()
+
+   def Salir(self):
+      print("\nFin del programa")
+      sys.exit(0)
+
+   def run(self):
+      while self.break_while==1:
+         self.menuPrincipal()
+         opcionMenu = input("ingresar una opcion: ")
+         action = self.choices.get(opcionMenu)
+         if action:
+            action()
+         else:
+            print("{0} no es una opcion valida".format(opcion))
+
+         
+if __name__ == "__main__":
+   Menu().run()
