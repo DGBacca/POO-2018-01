@@ -61,7 +61,7 @@ class Menu():
          elif(op==5):
             Lista.eliminarLista()
          elif(op==6):
-            .Album.rearAlbum()
+            Album.rearAlbum()
          elif(op==7):
             Album.eliminarAlbum()
          elif(op==8):
