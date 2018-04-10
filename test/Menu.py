@@ -1,16 +1,13 @@
 import sys
-
-"""
 from Admin import Admin
 from Artista import Artista
 from Cancion import Cancion
 from Album import Album
 from Comentarios import Comentarios
 from Lista import Lista
-from User import User 
-"""
+from User import User
 
-class Menu:
+class Menu():
 
    def __init__(self):
        self.break_while=1
@@ -23,14 +20,14 @@ class Menu:
 
    def menuPrincipal(self):
       print("""
-      Cheapy Menu Principal
+      CHEAPY Menu Principal
          1. Administrador
          2. Usuario
          3. Invitado 
          4. Salir
 
       """)
-
+#### Menu del admisnitrador ######
    def administrador(self):
       break_while=True
       while(break_while) :
@@ -53,89 +50,65 @@ class Menu:
 
          op = int(input("ingrese opcion: "))
          if (op==1):
-            self.verUsuarios()
+            print("La cantidad de usarios registrados es: \n" ,
+               User.CONTADOR_USERS)
          elif(op==2):
-            self.crearUsuario()
+            User.registrar_usuario()
          elif(op==3):
-            self.eliminarUsuario()
+            User.eliminarUsuario()
          elif(op==4):
-            self.crearPlaylist()
+            Lista.crearLista()
          elif(op==5):
-            self.eliminarPlaylist()
+            Lista.eliminarLista()
          elif(op==6):
-            self.crearAlbum()
+            .Album.rearAlbum()
          elif(op==7):
-            self.eliminarAlbum()
+            Album.eliminarAlbum()
          elif(op==8):
-            self.crearArtista()
+            Artista.crearArtista()
          elif(op==9):
-            self.eliminarArtista()
+            Artista.eliminarArtista()
          elif(op==10):
-            self.agregarComentario()
+            Comentarios.agregarComentario()
          elif(op==11):
-            self.eliminarComentario()
+            Comentarios.eliminarComentario()
          elif(op==12):
             break_while = False
-
-   def verUsuarios(self):
-      print("\nfuncion funciona")
-      
-   def crearUsuario(self):
-      pass
-
-   def eliminarUsuario(self):
-      pass
-
-   def crearPlaylist(self):
-      pass
-
-   def eliminarPlaylist(self):
-      pass
-
-   def crearAlbum(self):
-      pass
-
-   def eliminarAlbum(self):
-      pass
-      
-   def crearArtista(self):
-      pass
-
-   def eliminarArtista(self):
-      pass
-
-   def agregarComentario(self):
-      pass
-
-   def eliminarComentario(self):
-      pass
-
+   
+##### Menu de usuario registrado ######
    def usuario(self):
-      break_while=True
-      while(break_while):
-         print("""
-         CHEAPY Menu Usuario
-           1. Crear playlist
-           2. Eliminar playlist
-           3. Agrega comentario
-           4. Eliminar comentario
-           5. Salir
-           
-           """)
+      email = str(input("Ingrese E-mail: "))
+      password = str(input("Ingrese contraseña: "))                 # Usuario se loguea             
+      posible_User = None #User.autenticarUsuario(email,password)   # validacion de usuario logueado
+      if(posible_User==None):
+         print("Usuario no encontrado")
+      else:
+         break_while=True
+         while(break_while):
+            print("""
+            CHEAPY Menu Usuario
+              1. Crear playlist
+              2. Eliminar playlist
+              3. Agrega comentario
+              4. Eliminar comentario
+              5. Salir
+              
+              """)
 
-         op = int(input("ingrese opcion: "))
+            op = int(input("ingrese opcion: "))
 
-         if (op==1):
-            self.crearPlaylist()
-         elif(op==2):
-            self.eliminarPlaylist()
-         elif(op==3):
-            self.agregarComentario()
-         elif(op==4):
-            self.eliminarComentario()
-         elif(op==5):
-            break_while=False
+            if (op==1):
+               Lista.crearLista()
+            elif(op==2):
+               Lista.eliminarLista()
+            elif(op==3):
+               Comentarios.agregarComentario()
+            elif(op==4):
+               comentarios.eliminarComentario()
+            elif(op==5):
+               break_while=False
 
+##### Menu de usuario invitado ######
    def invitado(self):
       break_while=True
       while (break_while):
@@ -149,14 +122,15 @@ class Menu:
 
          op = int(input("Ingrese opcion: "))
          if (op==1):
-            self.registrase()
+            User.registrar_usuario()
          elif(op==2):
-            self.verPlaylist()
+            Lista.verlistas()
          elif(op==3):
             break_while=False
 
    def registrase(self):
-      pass
+      User.registrar_usuario()
+      # verificar metodo guardar
 
    def verPlaylist(self):
       pass
