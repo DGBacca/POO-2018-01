@@ -1,4 +1,4 @@
-import User from User
+from User import User
 class Admin(User):
 	"""docstring for Admin"""
 	def __init__(self,identificacion,username,password,email):
